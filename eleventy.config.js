@@ -6,7 +6,7 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
-
+const { minify } = require("terser");
 const pluginDrafts = require("./eleventy.config.drafts.js");
 const pluginImages = require("./eleventy.config.images.js");
 
@@ -77,6 +77,21 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
 		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
 	});
+
+	eleventyConfig.addNunjucksAsyncFilter("jsmin", async function (
+		code,
+		callback
+	) {
+		try {
+			const minified = await minify(code);
+			callback(null, minified.code);
+		} catch (err) {
+			console.error("Terser error: ", err);
+			// Fail gracefully.
+			callback(null, code);
+		}
+	});
+
 
 	// Customize Markdown library settings:
 	eleventyConfig.amendLibrary("md", mdLib => {
