@@ -4,18 +4,23 @@ layout: layouts/base.njk
 {# Only include the syntax highlighter CSS on blog posts #}
 {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
 {%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
-<h1>{{ title }}</h1>
-
-<ul class="post-metadata">
-	<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
-	{%- for tag in tags | filterTagList %}
-	{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-	<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-	{%- endfor %}
-</ul>
-
-{{ content | safe }}
-
+<article class="card ">
+		<div class="media-content p-4">
+			<p class="title">{{ title }}</p>
+			<p class="subtitle"><time class="subtitle" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+		</div>
+	<div class="card-content">
+		{{ content | safe }}
+	</div>
+	<div class="card-footer">
+			<ul class="post-metadata">
+				{%- for tag in tags | filterTagList %}
+				{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+				<li class="card-footer-item"><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
+				{%- endfor %}
+			</ul>
+	</div>
+</article>
 {%- if collections.posts %}
 {%- set previousPost = collections.posts | getPreviousCollectionItem %}
 {%- set nextPost = collections.posts | getNextCollectionItem %}
