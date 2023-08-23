@@ -33,23 +33,25 @@
 		<header>
 			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
 			<nav class="navbar" role="navigation" aria-label="main navigation">
-				<div class="navbar-brand">
-					<a class="navbar-item" href="https://dumasymptote.com">dumasymptote(dot)com</a>
-					<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar" >
-						<span aria-hidden="true"></span>
-						<span aria-hidden="true"></span>
-						<span aria-hidden="true"></span>
-					</a>
+				<div class="container is-fluid">
+					<div class="navbar-brand">
+						<a class="navbar-item" href="https://dumasymptote.com">dumasymptote(dot)com</a>
+						<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar" >
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+						</a>
+					</div>
+					<ul id="navbar" class="navbar-menu">
+					{%- for entry in collections.all | eleventyNavigation %}
+						<li class="navbar-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
+					{%- endfor %}
+						<li class="navbar-item"><a href="https://fintrack.dumasymptote.com">FinTrack</a></li>
+					</ul>
 				</div>
-				<ul id="navbar" class="navbar-menu">
-				{%- for entry in collections.all | eleventyNavigation %}
-					<li class="navbar-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
-				{%- endfor %}
-					<li class="navbar-item"><a href="https://fintrack.dumasymptote.com">FinTrack</a></li>
-				</ul>
 			</nav>
 		</header>
-		<main id="skip">
+		<main class="container is-fluid">
 			{{ content | safe }}
 		</main>
 		<footer></footer>
