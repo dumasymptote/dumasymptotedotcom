@@ -8,7 +8,9 @@
 		"start": "npx @11ty/eleventy --serve --quiet",
 		"debug": "DEBUG=Eleventy* npx @11ty/eleventy",
 		"debugstart": "DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
-		"benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
+		"benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+		"css-build": "node-sass --omit-source-map-url public/css/mystyles.scss public/css/index.css",
+		"css-watch": "npm run css-build -- --watch"
 	},
 	"repository": {
 		"type": "git",
@@ -39,6 +41,7 @@
 	},
 	"dependencies": {
 		"bulma": "^0.9.4",
+		"node-sass": "^9.0.0",
 		"terser": "^5.19.2"
 	}
 }
