@@ -1,6 +1,6 @@
 
 {% for post in postslist | reverse %}
-<section class="section">
+<section class="section is-child">
 	<div class="title">
 		<a class="has-text-success" href="{{ post.url }}">{{ post.data.title }}</a>
 	</div>
@@ -8,8 +8,17 @@
 		<time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("LLLL yyyy") }}</time>
 	</div>
 	<div class="content">
-		{%- if post.content.length > 100 %}{{ post.content.substring(0,100) | safe }}...{%- endif %}
-		{%- if post.content.length <= 100 %}{{ post.content | safe }}{%- endif %}
+		{% if postslist.indexOf(post) == postslist.length-1 %}
+			{{post.content | safe}}
+		{% else %}
+			{% if post.content.length > 100 %}
+				{{ post.content.substring(0,100) | safe }}...
+				{{ postslist.indexOf(post) }}
+			{% else %}
+				{{ post.content | safe }}
+			{% endif %}
+		{% endif %}
+
 	</div>
 </section>
 {% endfor %}

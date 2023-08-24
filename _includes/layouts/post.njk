@@ -2,12 +2,12 @@
 layout: layouts/base.njk
 ---
 
-<div class="card">
-		<div class="media-content pl-5 pt-5 pb-5 has-background-dark">
+<div class="message">
+		<div class="message-header">
 			<p class="title has-text-success">{{ title }}</p>
 			<p class="subtitle has-text-success"><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
 		</div>
-	<div class="card-content">
+	<div class="message-body">
 		{{ content | safe }}
 	</div>
 	<div class="card-footer">
