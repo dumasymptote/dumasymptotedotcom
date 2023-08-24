@@ -1,23 +1,21 @@
 ---
 layout: layouts/base.njk
 ---
-
-<div class="message">
-		<div class="message-header">
+<div class="section">
+		<div class="section-header is-primary">
 			<p class="title has-text-success">{{ title }}</p>
-			<p class="subtitle has-text-success"><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+			<p class="subtitle"><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
 		</div>
-	<div class="message-body">
+	<div class="content">
 		{{ content | safe }}
 	</div>
-	<div class="card-footer">
-			<ul class="post-metadata">
-				{%- for tag in tags | filterTagList %}
-				{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-				<li class="card-footer-item"><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-				{%- endfor %}
-			</ul>
-	</div>
+	<footer class="card-footer">
+		<label class="is-pulled-left">Tags:&nbsp;</label>
+		{%- for tag in tags | filterTagList %}
+		{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+		<a href="{{ tagUrl }}" class="chas-text-link">{{ tag }}</a>{%- if not loop.last %},&nbsp; {% endif %}
+		{%- endfor %}
+	</footer>
 </div>
 {%- if collections.posts %}
 {%- set previousPost = collections.posts | getPreviousCollectionItem %}

@@ -12,8 +12,7 @@
 			{{post.content | safe}}
 		{% else %}
 			{% if post.content.length > 100 %}
-				{{ post.content.substring(0,100) | safe }}...
-				{{ postslist.indexOf(post) }}
+				{{ post.content.substring(0,100) | safe }}... <a class="is-link" href="{{ post.url }}"> continue</a>
 			{% else %}
 				{{ post.content | safe }}
 			{% endif %}
