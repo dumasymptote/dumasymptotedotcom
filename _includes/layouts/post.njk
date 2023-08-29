@@ -10,11 +10,12 @@ layout: layouts/base.njk
 		{{ content | safe }}
 	</div>
 	<footer class="card-footer">
-		<label class="is-pulled-left">Tags:&nbsp;</label>
+    <div class="tags">
 		{%- for tag in tags | filterTagList %}
 		{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-		<a href="{{ tagUrl }}" class="chas-text-link">{{ tag }}</a>{%- if not loop.last %},&nbsp; {% endif %}
+		<a href="{{ tagUrl }}" class="tag is-medium">{{ tag }}</a>
 		{%- endfor %}
+    </div>
 	</footer>
 </div>
 {%- if collections.posts %}
