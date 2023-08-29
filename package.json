@@ -41,6 +41,8 @@
 	},
 	"dependencies": {
 		"bulma": "^0.9.4",
+		"markdown-it-attrs": "^4.1.6",
+		"markdown-it-bracketed-spans": "^1.0.1",
 		"node-sass": "^9.0.0",
 		"terser": "^5.19.2"
 	}
