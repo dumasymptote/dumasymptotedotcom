@@ -1,11 +1,20 @@
 # Is the Site working?
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5d32c266-4327-4652-9bc1-b719a4c6b5e8/deploy-status)](https://app.netlify.com/sites/dumasymptotedotcom/deploys)
 
+### How I build this.
+Run npm css-build
 
+this will update the index.css page by building the bulma sass with the overrides that are currently in the mystyles.scss file.
+
+run npm start which will run the development 11ty serve program.
 
 
 ### This was built using the eleventy base blog repo go check that out.
 https://github.com/11ty/eleventy-base-blog#readme
+
+### Currently using Bulma css toolkit and components
+https://bulma.io/
+
 
 ### Potential Color Schemes from Poline
 - Venomous Green
@@ -158,3 +167,25 @@ https://github.com/11ty/eleventy-base-blog#readme
 
     Silken Jade
     #07a099
+
+
+- White Siren
+
+    White
+    oklab(1.08 0.03 -0.00)
+
+    Bay
+    #a9ddc9
+
+    Bulma Hair
+    #3aa46a
+
+    Nightmare
+    #0d2a1e
+
+    Sapphire Siren
+    #682582
+
+    Minute Mauve
+    #f1e5f8
+
