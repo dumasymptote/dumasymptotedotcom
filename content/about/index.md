@@ -9,7 +9,8 @@ eleventyNavigation:
 
 
 Hi! My name is Mark and this is my page. Nothing is really going to happen here but I will hopefully get the fintracker app working eventually.
-{% image "./2023-08-23-me.JPG", "ME!" %}
+
+{% image "./2023-08-23-me.JPG", "ME!", ["300px, 400px"] %}
 
 ### Interests
 
@@ -19,5 +20,5 @@ Hi! My name is Mark and this is my page. Nothing is really going to happen here 
 3. Crazy legal stuff (like sovereign citizen craziness)
 
 ### Cool people
-{% image "./Family.JPG", "My favorite people" %}
+{% image "./Family.JPG", "My favorite people", ["400px, 300px"] %}
 
