@@ -2,7 +2,7 @@ module.exports = {
 	title: "dumasymptote(dot)com",
 	url: "https://dumasymptote.com/",
 	language: "en",
-	description: "A blog with nothing actually useful.",
+	description: "A blog with nothing useful.",
 	author: {
 		name: "Mark Guthrie",
 		email: "mguthriejr@gmail.com",

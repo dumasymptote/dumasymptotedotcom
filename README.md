@@ -15,7 +15,7 @@ https://github.com/11ty/eleventy-base-blog#readme
 ### Currently using Bulma css toolkit and components
 https://bulma.io/
 
-I am using the SOLAR theme from bulmaswatch at the moment but I may change it in the future.
+I am using the Ode to Metro theme from bulmaswatch at the moment but I may change it in the future.
 Check out https://jenil.github.io/bulmaswatch/ for themes for bulma
 
 ### Potential Color Schemes from Poline

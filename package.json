@@ -9,7 +9,7 @@
 		"debug": "DEBUG=Eleventy* npx @11ty/eleventy",
 		"debugstart": "DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
 		"benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
-		"css-build": "node-sass --omit-source-map-url public/css/mystyles.scss public/css/index.css",
+		"css-build": "node-sass --omit-source-map-url _includes/styles/mystyles.scss public/css/index.css",
 		"css-watch": "npm run css-build -- --watch"
 	},
 	"repository": {
