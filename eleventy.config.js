@@ -2,6 +2,7 @@ const { DateTime } = require("luxon");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownAttr = require('markdown-it-attrs');
 const markdownBracketSpan = require('markdown-it-bracketed-spans');
+const markdownFancyLists = require('markdown-it-fancy-lists').markdownItFancyListPlugin;
 
 var md = require('markdown-it')({
   html: true,
@@ -9,7 +10,8 @@ var md = require('markdown-it')({
   typographer: true
 })
 .use(markdownAttr)
-.use(markdownBracketSpan);
+.use(markdownBracketSpan)
+.use(markdownFancyLists);
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -114,6 +116,7 @@ eleventyConfig.amendLibrary("md", mdLib => {
 		level: [1,2,3,4],
 		slugify: eleventyConfig.getFilter("slugify")
 	});
+  mdLib.use(markdownFancyLists);
 });
 
 
