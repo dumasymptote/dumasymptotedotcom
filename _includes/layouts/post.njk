@@ -2,10 +2,15 @@
 layout: layouts/base.njk
 ---
 <div class="section">
-		<div class="section-header is-primary">
-			<p class="title has-text-success">{{ title }}</p>
-			<p class="subtitle"><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+  <div aria-label="DateColumns" class="col-span-2">
+    <p class="subtitle"><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+  </div>
+  <div class="col-span-10">
+    <div class="p-4">
+			<p class=" text-lime-500 text-lg font-bold">{{ title }}</p>
 		</div>
+  </div>
+
 	<div class="content">
 		{{ content | safe }}
 	</div>
