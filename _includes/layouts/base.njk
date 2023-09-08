@@ -12,45 +12,34 @@
 		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
 		<meta name="generator" content="{{ eleventy.generator }}">
 
-		{#-
-		CSS bundles are provided via the `eleventy-plugin-bundle` plugin:
-		1. You can add to them using `{% css %}`
-		2. You can get from them using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
-		3. You can do the same for JS: {% js %}{% endjs %} and <script>{% getBundle "js" %}</script>
-		4. Learn more: https://github.com/11ty/eleventy-plugin-bundle
-		#}
-		{#- Add the contents of a file to the bundle #}
-		{%- css %}{% include "public/css/index.css" %}{% endcss %}
-		{#- Or add from node_modules #}
-		{#{%- css %}{% include "node_modules/bulma/css/bulma.min.css" %}{% endcss %} #}
-		{#- Render the CSS bundle using Inlined CSS (for the fastest site performance in production) #}
-		<style>{% getBundle "css" %}</style>
-		{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
-		{#- <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
+		<link rel="stylesheet" href="/css/index.css">
 	</head>
 	<body>
 		<header>
 			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-			<nav class="navbar" role="navigation" aria-label="main navigation">
-				<div class="container is-fluid">
-					<div class="navbar-brand">
-						<a class="navbar-item" href="https://dumasymptote.com">dumasymptote(dot)com</a>
-						<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar" >
-							<span aria-hidden="true"></span>
-							<span aria-hidden="true"></span>
-							<span aria-hidden="true"></span>
-						</a>
-					</div>
-					<ul id="navbar" class="navbar-menu">
-					{%- for entry in collections.all | eleventyNavigation %}
-						<li class="navbar-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
-					{%- endfor %}
-						<li class="navbar-item"><a href="#">FinTrack</a></li><!--https://fintrack.dumasymptote.com will work in future-->
-					</ul>
-				</div>
+			<nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-slate-800" role="navigation" aria-label="main navigation">
+        <div class="relative flex w-full justify-between lg:static lg:block lg:w-auto lg:justify-start">
+          <a class="mr-4 inline-block whitespace-nowrap py-2 font-bold uppercase leading-relaxed text-blue-300 text-lg" href="https://dumasymptote.com">dumasymptote(dot)com</a>
+          <a role="button" class="block cursor-pointer rounded border border-solid border-transparent bg-transparent px-3 py-1 text-xl leading-none text-slate-400 outline-none focus:outline-none lg:hidden" aria-label="menu" aria-expanded="false" data-target="navbar" >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              className="fill-slate-400"
+            >
+              <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+            </svg>
+          </a>
+        </div>
+        <ul id="navbar" class="hidden lg:flex lg:gap-x-12">
+        {%- for entry in collections.all | eleventyNavigation %}
+          <li class="text-blue-300 text-lg"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
+        {%- endfor %}
+          <li class="text-blue-300 text-lg"><a href="#">FinTrack</a></li><!--https://fintrack.dumasymptote.com will work in future-->
+        </ul>
 			</nav>
 		</header>
-		<main class="container is-fluid pt-5">
+		<main class="">
 			{{ content | safe }}
 		</main>
 		<footer></footer>
