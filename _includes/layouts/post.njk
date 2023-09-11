@@ -1,21 +1,22 @@
 ---
 layout: layouts/base.njk
 ---
-<div class="grid grid-cols-12">
-  <div aria-label="DateColumns" class="col-span-2">
-    <p class="subtitle"><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+<div class="grid grid-cols-6">
+  <div class="col-span-3">
+			<p class=" text-lime-500 text-2xl font-bold">{{ title }}</p>
   </div>
-  <div class="col-span-10">
-			<p class=" text-lime-500 text-lg font-bold">{{ title }}</p>
+  <div aria-label="DateColumns" class="col-span-1">
+    <p class="text-blue-400"><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
   </div>
-<div class="col-span-12">
+  <div class="col-span-6">
 		{{ content | safe }}
 	</div>
-	<footer class="col-span-12">
-    <div class="tags">
+	<footer class="col-span-6">
+    <div class="py-3 flex">
+      <span class="pr-5 text-sm align-middle">Tags:</span>
 		{%- for tag in tags | filterTagList %}
 		{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-		<a href="{{ tagUrl }}" class="tag is-medium">{{ tag }}</a>
+		<a href="{{ tagUrl }}" class="border p-1 border-slate-400 bg-slate-300 hover:bg-slate-800 hover:text-blue-400 rounded-sm">{{ tag }}</a>
 		{%- endfor %}
     </div>
 	</footer>
@@ -24,9 +25,9 @@ layout: layouts/base.njk
 {%- set previousPost = collections.posts | getPreviousCollectionItem %}
 {%- set nextPost = collections.posts | getNextCollectionItem %}
 {%- if nextPost or previousPost %}
-<ul class="tabs is-left">
-	{%- if previousPost %}<li>Previous: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
-	{%- if nextPost %}<li>Next: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+<ul class="py-5 flex">
+	{%- if previousPost %}<li>Previous: <a class="text-lime-400 hover:text-blue-400" href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
+	{%- if nextPost %}<li class="px-5">Next: <a class="text-lime-400 hover:text-blue-400" href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
 </ul>
 {%- endif %}
 {%- endif %}
