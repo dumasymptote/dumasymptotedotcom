@@ -1,20 +1,17 @@
 ---
 layout: layouts/base.njk
 ---
-<div class="section">
+<div class="grid grid-cols-12">
   <div aria-label="DateColumns" class="col-span-2">
     <p class="subtitle"><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
   </div>
   <div class="col-span-10">
-    <div class="p-4">
 			<p class=" text-lime-500 text-lg font-bold">{{ title }}</p>
-		</div>
   </div>
-
-	<div class="content">
+<div class="col-span-12">
 		{{ content | safe }}
 	</div>
-	<footer class="card-footer">
+	<footer class="col-span-12">
     <div class="tags">
 		{%- for tag in tags | filterTagList %}
 		{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
