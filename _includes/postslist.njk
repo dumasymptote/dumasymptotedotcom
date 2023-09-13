@@ -1,26 +1,24 @@
 
 {% for post in postslist | reverse %}
-<div class="columns is-gapless">
-  <div class="column is-one-fifth">
-      <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("dd LLLL yyyy") }}</time>
-  </div>
-  <div class="column">
-    <article class="">
-      <div class="title">
-        <a class="has-text-success" href="{{ post.url }}">{{ post.data.title }}</a>
-      </div>
-      <div class="content">
-        {% if postslist.indexOf(post) == postslist.length-1 %}
-          {{post.content | safe}}
+<article id="{{ post.data.title }}">
+  <div class="grid grid-cols-6">
+    <div class="col-span-3">
+      <a class="text-2xl font-semibold text-blue-400 hover:text-lime-400" href="{{ post.url }}">{{ post.data.title }}</a>
+    </div>
+    <div class="col-span-1">
+        <time class="text-blue-400" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("dd LLLL yyyy") }}</time>
+    </div>
+    <div class="col-span-6 col-start-1 py-5 pb-5 border-b-2 border-slate-300">
+      {% if postslist.indexOf(post) == postslist.length-1 %}
+        {{post.content | safe}}
+      {% else %}
+        {% if post.content.length > 200 %}
+          {{ post.content.substring(0,200) | safe }}... <a class="font-semibold hover:underline" href="{{ post.url }}"> continue</a>
         {% else %}
-          {% if post.content.length > 200 %}
-            {{ post.content.substring(0,200) | safe }}... <a class="is-link" href="{{ post.url }}"> continue</a>
-          {% else %}
-            {{ post.content | safe }}
-          {% endif %}
+          {{ post.content | safe }}
         {% endif %}
-      </div>
-    </article>
+      {% endif %}
+    </div>
   </div>
-</div>
+</article>
 {% endfor %}
