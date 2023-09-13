@@ -8,7 +8,7 @@
     <div class="col-span-1">
         <time class="text-blue-400" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("dd LLLL yyyy") }}</time>
     </div>
-    <div class="col-span-6 col-start-1 py-5 pb-5">
+    <div class="col-span-6 col-start-1 py-5 pb-5 border-b-2 border-slate-300">
       {% if postslist.indexOf(post) == postslist.length-1 %}
         {{post.content | safe}}
       {% else %}
