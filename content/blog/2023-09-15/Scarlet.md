@@ -80,16 +80,16 @@ A trip to the zoo during covid! She was probably tired of being home with me her
 
 Look at my kid the rebel! I love her hair in this! the fact that she had the courage to do this is awesome! { .pb-4 }
 
-{% image "./Scarlet_10.jpg", "10 y/o Groob.", ["500em"] %}
+{% image "./Scarlet_10.JPG", "10 y/o Groob.", ["500em"] %}
 
 - Age 11 {.text-xl .font-semibold .text-red-800}
 
 Groob and her best friend at the football game shortly after her 11th birthday. She is already sick of me but couldnt help but pose for the photo. { .pb-4 }
 
-{% image "./Scarlet_11.jpg", "11 y/o Groob.", ["500em"] %}
+{% image "./Scarlet_11.JPG", "11 y/o Groob.", ["500em"] %}
 
 - Age 12 {.text-xl .font-semibold .text-red-800}
 
 Here she is a week before her birthday this time. I wanted to have this ready for her birthday so I didnt want to wait for an official 12y/o picture. As much of a pain in the butt as she can be, I can't imagine having a better kid. I love you groob. Happy birthday! { .pb-4 }
 
-{% image "./Scarlet_12.jpg", "12 y/o Groob! WOOHOO", ["500em"] %}
+{% image "./Scarlet_12.JPG", "12 y/o Groob! WOOHOO", ["500em"] %}
