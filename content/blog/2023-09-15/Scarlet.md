@@ -2,7 +2,7 @@
 title: SCARLET IS THE COOLEST
 description: GROOBERT
 date: 2023-09-15
-draft: true
+draft: false
 tags:
   - groobert
   - scarlet
