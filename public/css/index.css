@@ -1159,6 +1159,10 @@ video {
 }
 @media (min-width: 640px) {
 
+  .sm\:hidden {
+    display: none;
+  }
+
   .sm\:flex-row {
     flex-direction: row;
   }
