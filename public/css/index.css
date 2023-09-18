@@ -533,12 +533,6 @@ video {
 .relative {
   position: relative;
 }
-.left-0 {
-  left: 0px;
-}
-.top-0 {
-  top: 0px;
-}
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -893,9 +887,6 @@ video {
 .bg-transparent {
   background-color: transparent;
 }
-.fill-slate-400 {
-  fill: #94a3b8;
-}
 .fill-blue-400 {
   fill: #60a5fa;
 }
@@ -1171,24 +1162,8 @@ video {
   .sm\:flex-row {
     flex-direction: row;
   }
-
-  .sm\:flex-col {
-    flex-direction: column;
-  }
-
-  .sm\:items-stretch {
-    align-items: stretch;
-  }
-
-  .sm\:justify-start {
-    justify-content: flex-start;
-  }
 }
 @media (min-width: 768px) {
-
-  .md\:block {
-    display: block;
-  }
 
   .md\:hidden {
     display: none;
